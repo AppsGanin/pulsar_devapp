@@ -1,3 +1,40 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Pulsar Cordova</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+
+        <div class="ion-text-center">
+            <img style="max-width: 75px;max-height: 75px;margin: 40px 0;" src="assets/icon.png">
+        </div>
+
+        <div style="border: 1px #dcdcdcc7 solid;margin: 0 15px;border-radius: 10px;padding: 6px;">
+            <ion-item>
+                <ion-label position="stacked">Адрес</ion-label>
+                <ion-input [(ngModel)]="url" placeholder="http://127.0.0.1"></ion-input>
+            </ion-item>
+
+            <ion-button [disabled]="!validURL(url)" (click)="goUrl()" shape="round"
+                        class="ion-no-margin ion-margin-vertical" expand="full">Войти
+            </ion-button>
+        </div>
+
+        <ion-item-divider *ngIf="listUrl.length" class="ion-margin-top">
+            <ion-label>
+                Недавние
+            </ion-label>
+        </ion-item-divider>
+
+        <ion-list *ngIf="listUrl.length" lines="full">
+            <ion-item *ngFor="let itemUrl of listUrl">
+                <ion-label (click)="goUrl(itemUrl)">{{itemUrl}}</ion-label>
+                <ion-icon name="close" slot="end" (click)="removeUrl(itemUrl)"></ion-icon>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+
 </ion-app>
