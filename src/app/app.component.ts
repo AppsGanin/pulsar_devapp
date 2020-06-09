@@ -21,6 +21,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      window.open('http://192.168.8.105:8101/','_self');
     });
   }
 }

@@ -9,15 +9,6 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        children: [
-          {
-            path: '',
-            loadChildren: '../tab1/tab1.module#Tab1PageModule'
-          }
-        ]
-      },
-      {
         path: 'tab2',
         children: [
           {
@@ -27,24 +18,15 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab3',
-        children: [
-          {
-            path: '',
-            loadChildren: '../tab3/tab3.module#Tab3PageModule'
-          }
-        ]
-      },
-      {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/tab2',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/tab2',
     pathMatch: 'full'
   }
 ];
